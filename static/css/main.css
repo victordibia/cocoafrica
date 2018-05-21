@@ -410,8 +410,9 @@ a.documentationlink {
 }
 .sortmainbox{
   position: relative;
+  width: 150px;
 }
-.sortdropdown{
+.sortdropdown, .searchsourcedropdown{
   width: auto;
   position: absolute;
   top: -22px;
