@@ -14,4 +14,7 @@ flickr.init(credentials)
 
 results  = ds.get_images()
 for row in results:
-    print(row)
+    result_payload = {"url": row["url"], "title": "", "source": row["source"], "description":row["description"]}
+    print(result_payload)
+
+    print("=========")

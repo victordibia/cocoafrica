@@ -21,6 +21,16 @@ def verifytoken():
     response_payload = {"status": auth.verify_token(input_data["token"], credentials.google_app_clientid)}
     return jsonify(response_payload)
 
+
+@app.route("/exploredataset")
+def exploredataset():
+    data_results  = ds.get_images()
+    for row in data_results:
+        result_payload = {"url": row["url"], "title": "", "source": row["source"], "description":row["description"]}
+        # print(result_payload)
+
+    return jsonify(result_payload)
+
 @app.route("/coco")
 def test():
     return render_template('index.html')
