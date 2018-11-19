@@ -2,7 +2,7 @@
 <div class="abstractcontent lighttext presignin">
 
   <p>Please sign in to access the curation interface.</p>
-  <br/>
+  <br />
   <div class="g-signin2" data-onsuccess="onSignIn" data-width="300" data-onfailure="onSigninFail" data-theme="dark"></div>
 
 
@@ -30,10 +30,10 @@
   </div>
 
   <!-- Image search bar -->
-  <div class="pb10">
+  <div class="pb10 ">
     <div class="imagesearchbuttondiv ">
 
-      <button class="bx--btn bx--btn--primary imagesearchbutton iblock" type="button">
+      <button class="bx--btn bx--btn--primary imagesearchbutton " type="button">
         Search
         <svg class="bx--btn__icon" width='23' height='23' viewBox='0 0 23 23' fill-rule='evenodd'>
           <path d='M16.036 18.455l2.404-2.405 5.586 5.587-2.404 2.404zM8.5 2C12.1 2 15 4.9 15 8.5S12.1 15 8.5 15 2 12.1 2 8.5 4.9 2 8.5 2zm0-2C3.8 0 0 3.8 0 8.5S3.8 17 8.5 17 17 13.2 17 8.5 13.2 0 8.5 0zM15 16a1 1 0 1 1 2 0 1 1 0 1 1-2 0'></path>
@@ -59,67 +59,84 @@
         </a>
       </div>
 
-      <!-- ====== sort type dropdown ======= -->
-      <div class="sortmainbox iblock ">
-        <ul data-dropdown data-value class="bx--dropdown iblock sortdropdown " tabindex="0">
-          <li class="bx--dropdown-text sortdropdowntext">relevance</li>
-          <svg class="bx--dropdown__arrow" width="10" height="5" viewBox="0 0 10 5" fill-rule="evenodd">
-            <path d="M10 0L5 5 0 0z"></path>
-          </svg>
-          <li>
-            <ul class="bx--dropdown-list">
-              <li data-option data-value="all" class="bx--dropdown-item">
-                <a class="bx--dropdown-link" href="javascript:void(0)">relevance</a>
-              </li>
-              <li data-option data-value="cloudFoundry" class="bx--dropdown-item">
-                <a class="bx--dropdown-link" href="javascript:void(0)">date-posted-asc</a>
-              </li>
-              <li data-option data-value="staging" class="bx--dropdown-item">
-                <a class="bx--dropdown-link" href="javascript:void(0)">date-posted-desc</a>
-              </li>
-              <li data-option data-value="dea" class="bx--dropdown-item">
-                <a class="bx--dropdown-link" href="javascript:void(0)">date-taken-asc </a>
-              </li>
-              <li data-option data-value="router" class="bx--dropdown-item">
-                <a class="bx--dropdown-link" href="javascript:void(0)">interestingness-asc </a>
-              </li>
-              <li data-option data-value="router" class="bx--dropdown-item">
-                <a class="bx--dropdown-link" href="javascript:void(0)">interestingness-desc </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
+
+      <div class="dropdowns ">
+        <!-- ====== sort type dropdown ======= -->
+        <div class="sortmainbox iblock ">
+          <ul data-dropdown data-value class="bx--dropdown iblock sortdropdown" tabindex="0">
+            <li class="bx--dropdown-text sortdropdowntext">relevance</li>
+            <svg class="bx--dropdown__arrow" width="10" height="5" viewBox="0 0 10 5" fill-rule="evenodd">
+              <path d="M10 0L5 5 0 0z"></path>
+            </svg>
+            <li>
+              <ul class="bx--dropdown-list">
+                <li data-option data-value="all" class="bx--dropdown-item">
+                  <a class="bx--dropdown-link" href="javascript:void(0)">relevance</a>
+                </li>
+                <li data-option data-value="cloudFoundry" class="bx--dropdown-item">
+                  <a class="bx--dropdown-link" href="javascript:void(0)">date-posted-asc</a>
+                </li>
+                <li data-option data-value="staging" class="bx--dropdown-item">
+                  <a class="bx--dropdown-link" href="javascript:void(0)">date-posted-desc</a>
+                </li>
+                <li data-option data-value="dea" class="bx--dropdown-item">
+                  <a class="bx--dropdown-link" href="javascript:void(0)">date-taken-asc </a>
+                </li>
+                <li data-option data-value="router" class="bx--dropdown-item">
+                  <a class="bx--dropdown-link" href="javascript:void(0)">interestingness-asc </a>
+                </li>
+                <li data-option data-value="router" class="bx--dropdown-item">
+                  <a class="bx--dropdown-link" href="javascript:void(0)">interestingness-desc </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- image search source -->
+        <div class="sortmainbox iblock ">
+          <ul data-dropdown data-value class="bx--dropdown searchsourcedropdown " tabindex="0">
+            <li class="bx--dropdown-text searchsourcedropdowntext">flickr</li>
+            <svg class="bx--dropdown__arrow" width="10" height="5" viewBox="0 0 10 5" fill-rule="evenodd">
+              <path d="M10 0L5 5 0 0z"></path>
+            </svg>
+            <li>
+              <ul class="bx--dropdown-list">
+                <li data-option data-value="all" class="bx--dropdown-item">
+                  <a class="bx--dropdown-link" href="javascript:void(0)">flickr</a>
+                </li>
+                <li data-option data-value="cloudFoundry" class="bx--dropdown-item">
+                  <a class="bx--dropdown-link" href="javascript:void(0)">google</a>
+                </li>
+                <li data-option data-value="staging" class="bx--dropdown-item">
+                  <a class="bx--dropdown-link" href="javascript:void(0)">bing</a>
+                </li>
+                <li data-option data-value="dea" class="bx--dropdown-item">
+                  <a class="bx--dropdown-link" href="javascript:void(0)">yahoo</a>
+                </li>
+
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- sleect all check box toggel -->
+        <div class="selectionbar iblock">
+          <div class="bx--form-item bx--checkbox-wrapper">
+            <input id="bx--checkbox-new" class="bx--checkbox selectalltoggle" type="checkbox" value="new" name="checkbox"
+              checked>
+            <label for="bx--checkbox-new" class="bx--checkbox-label  "> Toggle Select all</label>
+          </div>
+        </div>
+
       </div>
 
-      <!-- image search source --> 
-      <div class="sortmainbox iblock ">
-        <ul data-dropdown data-value class="bx--dropdown iblock searchsourcedropdown " tabindex="0">
-          <li class="bx--dropdown-text searchsourcedropdowntext">flickr</li>
-          <svg class="bx--dropdown__arrow" width="10" height="5" viewBox="0 0 10 5" fill-rule="evenodd">
-            <path d="M10 0L5 5 0 0z"></path>
-          </svg>
-          <li>
-            <ul class="bx--dropdown-list">
-              <li data-option data-value="all" class="bx--dropdown-item">
-                <a class="bx--dropdown-link" href="javascript:void(0)">flickr</a>
-              </li>
-              <li data-option data-value="cloudFoundry" class="bx--dropdown-item">
-                <a class="bx--dropdown-link" href="javascript:void(0)">google</a>
-              </li>
-              <li data-option data-value="staging" class="bx--dropdown-item">
-                <a class="bx--dropdown-link" href="javascript:void(0)">bing</a>
-              </li>
-              <li data-option data-value="dea" class="bx--dropdown-item">
-                <a class="bx--dropdown-link" href="javascript:void(0)">yahoo</a>
-              </li>
-                
-            </ul>
-          </li>
-        </ul>
-      </div>
+
     </div>
 
   </div>
+
+
 
   <!-- image search results -->
   <div class="imagesearchresultcontent">
@@ -147,4 +164,4 @@
 </script>
 
 
-<br/>
+<br />
