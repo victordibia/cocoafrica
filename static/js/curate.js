@@ -41,7 +41,7 @@ $(function () {
 
 
 
-    $selectOverlay = $("<div class='selectoverlay'> <div class='selectcontent'>&#10004;</div> </div>")
+    $selectOverlay = $("<div class='selectoverlay'> <div class='selectcontent'>&#10004;</div> </div>");
 
     $('body').on('click', '.selectoverlay', function () {
         $(this).remove();
