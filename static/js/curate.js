@@ -40,16 +40,32 @@ $(function () {
 
 
 
-
-    $selectOverlay = $("<div class='selectoverlay'> <div class='selectcontent'>&#10004;</div> </div>");
+    overlayHTML = "<div class='selectoverlay'> <div class='selectcontent'>&#10004;</div> </div>"
+    $selectOverlay = $(overlayHTML);
 
     $('body').on('click', '.selectoverlay', function () {
         $(this).remove();
+        updateSelectCount()
     });
 
+    // Update the list of selected images each time selection event occurs
+    function updateSelectCount() {
+        idHolder = []
+        $(".eachimagebox .selectoverlay").each(function () {
+            idHolder.push($(this).parent().attr("data-id"))
+        });
+        console.log("Total selected ids", idHolder[0])
+        $(".numselected").html(idHolder.length)
+
+    }
+
+    // Click event for each image
     $('body').on('click', '.imageresultimg', function () {
-        $(this).parent().append($selectOverlay)
+        // $newOverLay = $(overlayHTML)
+        // $newOverLay.id = $(this).attr("data-id")
+        $(this).parent().append($(overlayHTML))
         console.log($(this).attr("data-id"))
+        updateSelectCount()
         // var imageparams = {
         //     "sort": $(".sortdropdowntext").text(),
         //     "searchterm": $(".searchinputbox").val() || "lagos nigeria",
@@ -79,35 +95,28 @@ $(function () {
 
     });
 
+    // Select all check box toggle
     $(".selectalltoggle").change(function () {
         console.log(($(".imageresultimg")).length)
         if (this.checked) {
-            // $(".imageresultimg").attr("class", "imageresultimg imgselected").append($selectOverlay)
             $(".imageresultimg").parent().append($selectOverlay)
-            // console.log($(".imageresultimg").parent().html())
-            // .css({
-            //     border: "3px solid #F09310"
-            // });
-            // console.log("bingooo")
         } else {
-            // $(".imageresultimg").attr("class", "imageresultimg")
             $(".selectoverlay").remove()
-            // .css({
-            //     border: "3px solid #fff"
-            // });
         }
+        updateSelectCount()
     });
 
+    // Remove all broken images that may have been deleted
     function removeBroken() {
-
         setTimeout(function () {
             $('img').each(function () {
                 if (this.naturalWidth === 0 || this.naturalHeight === 0 || this.complete === false) {
-                    $(this).remove()
+                    $(this).fadeOut().remove()
                 }
             });
-        }, 1000)
+        }, 3000)
     }
+
     // Hover event for images
     $('body').on('mouseenter', '.imageresultimg', function () {
         // lastHoverTime = new Date();
@@ -147,7 +156,15 @@ $(function () {
 
     function loadSearchResults() {
         showLoading("#graph_loading_overlay")
+
+        // empty photos div
         $(".curatephotos#photos").empty()
+
+        // uncheck toggle select all button
+        $(".selectalltoggle").prop("checked", false)
+        updateSelectCount()
+
+
 
         sortparam = $(".sortdropdowntext").text()
 
@@ -171,8 +188,8 @@ $(function () {
             $(".searchstatus").text(resultstatus);
             $(".pagenumberinputbox").val(result.searchresults.page);
             result.searchresults.photo.forEach(function (each) {
-                $vizsubbox = $("<div id='" + "divid" + "' class='eachimagebox'>" +
-                    "<img class='imageresultimg' src= '" + each.url_n + "'  data-title= '" + each.title + "' data-id='" + each.id + "'  />" +
+                $vizsubbox = $("<div id='" + each.id + "' class='eachimagebox'>" +
+                    "<img class='imageresultimg' src= '" + each.url_n + "'data-title= '" + each.title + "'data-id='" + each.id + "'  />" +
                     // "<div class='imghovermenubar'> <div class='imagehovermenu'>save</div></div>" + 
                     "</div>");
                 $(".curatephotos#photos").append($vizsubbox)

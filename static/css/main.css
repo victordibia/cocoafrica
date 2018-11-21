@@ -483,14 +483,14 @@ a.documentationlink {
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.55);
+  background-color: rgba(61, 113, 200, 0.75);
   cursor: pointer;
   color: #fff;
   font-size: 20px;
 }
 
 .selectoverlay:hover {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(61, 113, 200, 0.3);
 }
 
 .selectcontent {
