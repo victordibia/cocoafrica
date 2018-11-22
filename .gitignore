@@ -1,5 +1,7 @@
 utils/credentials.py
 *.DS_Store
+temp
+
 
 
 # Byte-compiled / optimized / DLL files

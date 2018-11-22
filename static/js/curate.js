@@ -39,6 +39,10 @@ $(function () {
     })
 
 
+    // Remove results with broken links
+    $(".removebadimagesbutton").click(function () {
+        removeBroken();
+    })
 
     overlayHTML = "<div class='selectoverlay'> <div class='selectcontent'>&#10004;</div> </div>"
     $selectOverlay = $(overlayHTML);
@@ -97,7 +101,7 @@ $(function () {
 
     // Select all check box toggle
     $(".selectalltoggle").change(function () {
-        console.log(($(".imageresultimg")).length)
+        removeBroken()
         if (this.checked) {
             $(".imageresultimg").parent().append($selectOverlay)
         } else {
@@ -108,13 +112,13 @@ $(function () {
 
     // Remove all broken images that may have been deleted
     function removeBroken() {
-        setTimeout(function () {
-            $('img').each(function () {
-                if (this.naturalWidth === 0 || this.naturalHeight === 0 || this.complete === false) {
-                    $(this).fadeOut().remove()
-                }
-            });
-        }, 3000)
+        // setTimeout(function () {
+        $('img').each(function () {
+            if (this.naturalWidth === 0 || this.naturalHeight === 0 || this.complete === false) {
+                $(this).fadeOut().remove()
+            }
+        });
+        // }, 3000)
     }
 
     // Hover event for images
@@ -196,8 +200,7 @@ $(function () {
 
             });
 
-            // Remove results with broken links
-            removeBroken();
+
 
         }).fail(function (xhr, status, error) {
             $(".vizbox").fadeOut("slow");
