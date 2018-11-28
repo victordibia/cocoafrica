@@ -1,5 +1,5 @@
-## Author: Victor Dibia
-## Serves up the Coco-Africa Web Interface
+# Author: Victor Dibia
+# Serves up the Coco-Africa Web Interface
 
 from flask import Flask, render_template, request, jsonify
 from utils import credentials
@@ -64,8 +64,8 @@ def search():
 def curate():
     input_data = request.json
     print(input_data)  # print(response_payload)
-    save_status = ds.save_image_data(
-        flickr.get_image_info(input_data["id"]), input_data)
+    # save_status = ds.save_image_data(
+    #     flickr.get_image_info(input_data["id"]), input_data)
     response_payload = {"status": save_status}
     return jsonify(response_payload)
 

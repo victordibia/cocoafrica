@@ -43,16 +43,26 @@
 
       <!-- Remove bad images button -->
       <div class="iblock">
-        <button class="bx--btn bx--btn--primary removebadimagesbutton" type="button">
-          Remove Broken Images
+        <button class="bx--btn bx--btn--primary removebadimagesbutton" type="button" disabled>
+          Remove Broken
           <svg class="bx--btn__icon" width="16" height="16" viewBox="0 0 16 16" fill-rule='evenodd'>
             <path d="M8 14.5c3.6 0 6.5-2.9 6.5-6.5S11.6 1.5 8 1.5 1.5 4.4 1.5 8s2.9 6.5 6.5 6.5zM8 16c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"></path>
             <path d="M8 6.6l2.1-2.1 1.4 1.4L9.4 8l2.1 2.1-1.4 1.4L8 9.4l-2.1 2.1-1.4-1.4L6.6 8 4.5 5.9l1.4-1.4L8 6.6z"></path>
           </svg>
+        </button>
+      </div>
 
+      <!-- Save all images button -->
+      <div class="iblock">
+        <button class="bx--btn bx--btn--primary saveimagesbutton" type="button" disabled>
+          Save
+          <svg class="bx--btn__icon" width="14" height="16" viewBox="0 0 14 16">
+            <path d="M7.5 11l4.1-4.4.7.7L7 13 1.6 7.3l.7-.7L6.5 11V0h1v11zm5.5 4v-2h1v2c0 .6-.4 1-1 1H1c-.6 0-1-.4-1-1v-2h1v2h12z"></path>
+          </svg>
 
         </button>
       </div>
+
       <input id="text1" type="text" class="bx--text-input iblock searchinputbox" placeholder="lagos nigeria" />
 
       <div class="iblock previousnavbutton resultnavibutton">
@@ -139,13 +149,13 @@
         <div class="selectionbar iblock ">
           <div class="bx--form-item bx--checkbox-wrapper">
             <input id="bx--checkbox-new" class="bx--checkbox selectalltoggle" type="checkbox" value="new" name="checkbox">
-            <label for="bx--checkbox-new" class="bx--checkbox-label  "> Toggle Select all</label>
+            <label for="bx--checkbox-new" class="bx--checkbox-label  "> Toggle Remove All</label>
           </div>
 
         </div>
 
         <div class="selectedlabel iblock">
-          <span class="numselected"> Selected</span>
+          <span class="numselected"> </span>
           <span> Selected</span>
         </div>
 

@@ -1,4 +1,5 @@
 var userEmail = "";
+var idHolder = []
 $(function () {
     /**
      * Manage visualization curation interface
@@ -38,45 +39,15 @@ $(function () {
         loadSearchResults();
     })
 
-
-    // Remove results with broken links
-    $(".removebadimagesbutton").click(function () {
-        removeBroken();
-    })
-
-    overlayHTML = "<div class='selectoverlay'> <div class='selectcontent'>&#10004;</div> </div>"
-    $selectOverlay = $(overlayHTML);
-
-    $('body').on('click', '.selectoverlay', function () {
-        $(this).remove();
-        updateSelectCount()
-    });
-
-    // Update the list of selected images each time selection event occurs
-    function updateSelectCount() {
-        idHolder = []
-        $(".eachimagebox .selectoverlay").each(function () {
-            idHolder.push($(this).parent().attr("data-id"))
-        });
-        console.log("Total selected ids", idHolder[0])
-        $(".numselected").html(idHolder.length)
-
-    }
-
-    // Click event for each image
-    $('body').on('click', '.imageresultimg', function () {
-        // $newOverLay = $(overlayHTML)
-        // $newOverLay.id = $(this).attr("data-id")
-        $(this).parent().append($(overlayHTML))
-        console.log($(this).attr("data-id"))
-        updateSelectCount()
-        // var imageparams = {
-        //     "sort": $(".sortdropdowntext").text(),
-        //     "searchterm": $(".searchinputbox").val() || "lagos nigeria",
-        //     "page": searchpage,
-        //     "id": $(this).attr("data-id"),
-        //     "curatedbyuser": userEmail
-        // }
+    // Download selected images
+    $(".saveimagesbutton").click(function () {
+        var imageparams = {
+            "sort": $(".sortdropdowntext").text(),
+            "searchterm": $(".searchinputbox").val() || "lagos nigeria",
+            "page": searchpage,
+            "ids": idHolder,
+            "curatedbyuser": userEmail
+        }
 
         // toggle selected
 
@@ -95,13 +66,47 @@ $(function () {
         // }).fail(function (xhr, status, error) {
         //     showNotification("Server Error. ", status, error + ". You might have to try again later.")
         // });
+    })
 
+
+    // Remove results with broken links
+    $(".removebadimagesbutton").click(function () {
+        removeBroken();
+    })
+
+    overlayHTML = "<div class='selectoverlay'> <div class='selectcontent'>&#10006;</div> </div>"
+    $selectOverlay = $(overlayHTML);
+
+    $('body').on('click', '.selectoverlay', function () {
+        $(this).remove();
+        updateSelectCount()
+    });
+
+    // Update the list of selected images each time selection event occurs
+    function updateSelectCount() {
+        idHolder = []
+
+        $(".eachimagebox").not(":has(.selectoverlay)").each(function () {
+            idHolder.push($(this).parent().attr("data-id"))
+        });
+        console.log("Total selected ids", (idHolder.length))
+        $(".numselected").html(idHolder.length)
+
+    }
+
+    // Click event for each image
+    $('body').on('click', '.imageresultimg', function () {
+        // $newOverLay = $(overlayHTML)
+        // $newOverLay.id = $(this).attr("data-id")
+        $(this).parent().append($(overlayHTML))
+        console.log($(this).attr("data-id"))
+        updateSelectCount()
 
     });
 
     // Select all check box toggle
     $(".selectalltoggle").change(function () {
-        removeBroken()
+        // removeBroken()
         if (this.checked) {
             $(".imageresultimg").parent().append($selectOverlay)
         } else {
@@ -113,12 +118,13 @@ $(function () {
     // Remove all broken images that may have been deleted
     function removeBroken() {
         // setTimeout(function () {
-        $('img').each(function () {
+        $('img.imageresultimg').each(function () {
             if (this.naturalWidth === 0 || this.naturalHeight === 0 || this.complete === false) {
-                $(this).fadeOut().remove()
+                $(this).parent().fadeOut().remove()
             }
         });
         // }, 3000)
+        updateSelectCount()
     }
 
     // Hover event for images
@@ -166,9 +172,6 @@ $(function () {
 
         // uncheck toggle select all button
         $(".selectalltoggle").prop("checked", false)
-        updateSelectCount()
-
-
 
         sortparam = $(".sortdropdowntext").text()
 
@@ -200,7 +203,9 @@ $(function () {
 
             });
 
-
+            $(".saveimagesbutton").prop('disabled', false);
+            $(".removebadimagesbutton").prop('disabled', false);
+            updateSelectCount()
 
         }).fail(function (xhr, status, error) {
             $(".vizbox").fadeOut("slow");

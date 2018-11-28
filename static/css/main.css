@@ -490,7 +490,7 @@ a.documentationlink {
 }
 
 .selectoverlay:hover {
-  background-color: rgba(61, 113, 200, 0.3);
+  background-color: rgba(61, 113, 200, 0.5);
 }
 
 .selectcontent {
