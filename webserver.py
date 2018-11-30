@@ -49,24 +49,36 @@ def test():
 @app.route("/search", methods=['POST'])
 def search():
     input_data = request.json
-    print(input_data)
+    # print(input_data)
+    search_results = flickr.search_photos_text(input_data["searchtext"],
+                                               input_data["numresults"], input_data["page"],
+                                               input_data["sort"])
     response_payload = {
-        "searchresults":
-        flickr.search_photos_text(input_data["searchtext"],
-                                  input_data["numresults"], input_data["page"],
-                                  input_data["sort"])
+        "searchresults": search_results
     }
     # print(response_payload)
     return jsonify(response_payload)
 
 
-@app.route("/curateimage", methods=['POST'])
-def curate():
-    input_data = request.json
-    print(input_data)  # print(response_payload)
+# @app.route("/curateimage", methods=['POST'])
+# def curate():
+#     input_data = request.json
+#     print(input_data)  # print(response_payload)
+#     # save_status = ds.save_image_data(
+#     #     flickr.get_image_info(input_data["id"]), input_data)
+#     response_payload = {"status": save_status}
+#     return jsonify(response_payload)
+
+
+@app.route("/saveimages", methods=['POST'])
+def saveimages():
+    curated_data = request.json
+    print(curated_data)  # print(response_payload)
+    ds.save_image_data(curated_data)
     # save_status = ds.save_image_data(
     #     flickr.get_image_info(input_data["id"]), input_data)
-    response_payload = {"status": save_status}
+    # flickr.get_images_info(input_data["imageids"])
+    response_payload = {"status": "save_status"}
     return jsonify(response_payload)
 
 

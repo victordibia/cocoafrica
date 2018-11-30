@@ -28,6 +28,7 @@ def search_photos_text(search_text, num_max_results, page_num, sort_param):
         extras=extras,
         sort=sort_param)
     result_photo_array = search_results['photos']
+    # print(result_photo_array)
     return result_photo_array
     # for row in :
     #     print(row["url_c"])
@@ -44,5 +45,15 @@ def get_image_info(image_id):
     print(image_result["photo"]["title"]["_content"])
     return image_result
 
+
+def get_images_info(image_ids):
+    image_results = []
+    for image_id in image_ids:
+        image_result = flickr_api.photos.getinfo(
+            photo_id=image_id, extras=extras)
+        print(image_result)
+        image_results.append(image_result)
+    print(image_results)
+    return image_results
 
 # search_photos_text("lagos nigeria", 5)

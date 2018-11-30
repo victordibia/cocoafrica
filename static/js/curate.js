@@ -1,5 +1,6 @@
 var userEmail = "";
 var idHolder = []
+var imageData = {}
 $(function () {
     /**
      * Manage visualization curation interface
@@ -41,31 +42,42 @@ $(function () {
 
     // Download selected images
     $(".saveimagesbutton").click(function () {
+        imageids = []
+        idHolder.forEach(function (each) {
+            imageids.push(imageData[each])
+        })
+        // console.log(imageids)
         var imageparams = {
-            "sort": $(".sortdropdowntext").text(),
+
             "searchterm": $(".searchinputbox").val() || "lagos nigeria",
-            "page": searchpage,
-            "ids": idHolder,
-            "curatedbyuser": userEmail
+            "searchsource": $(".searchsourcedropdowntext").text(),
+            "imageids": imageids,
+            "searchtags": {
+                "page": searchpage,
+                "searchsource": $(".searchsourcedropdowntext").text(),
+                "searchterm": $(".searchinputbox").val() || "lagos nigeria",
+                "sort": $(".sortdropdowntext").text(),
+                "curatedbyuser": userEmail,
+            }
         }
 
         // toggle selected
 
         // imageself = $(this)
-        // console.log(imageparams);
+        console.log(imageparams);
 
-        // $.ajax({
-        //     url: "/curateimage",
-        //     type: "POST",
-        //     contentType: "application/json",
-        //     data: JSON.stringify(imageparams)
-        // }).done(function (result) {
-        //     console.log(result)
-        //     imageself.parent().fadeOut()
-        //     $(".hoverrig").hide()
-        // }).fail(function (xhr, status, error) {
-        //     showNotification("Server Error. ", status, error + ". You might have to try again later.")
-        // });
+        $.ajax({
+            url: "/saveimages",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(imageparams)
+        }).done(function (result) {
+            console.log(result)
+            // imageself.parent().fadeOut()
+            // $(".hoverrig").hide()
+        }).fail(function (xhr, status, error) {
+            showNotification("Server Error. ", status, error + ". You might have to try again later.")
+        });
     })
 
 
@@ -85,23 +97,16 @@ $(function () {
     // Update the list of selected images each time selection event occurs
     function updateSelectCount() {
         idHolder = []
-
         $(".eachimagebox").not(":has(.selectoverlay)").each(function () {
-            idHolder.push($(this).parent().attr("data-id"))
+            idHolder.push($(this).attr("id"))
         });
-        console.log("Total selected ids", (idHolder.length))
         $(".numselected").html(idHolder.length)
-
     }
 
     // Click event for each image
     $('body').on('click', '.imageresultimg', function () {
-        // $newOverLay = $(overlayHTML)
-        // $newOverLay.id = $(this).attr("data-id")
         $(this).parent().append($(overlayHTML))
-        console.log($(this).attr("data-id"))
         updateSelectCount()
-
     });
 
     // Select all check box toggle
@@ -117,13 +122,11 @@ $(function () {
 
     // Remove all broken images that may have been deleted
     function removeBroken() {
-        // setTimeout(function () {
         $('img.imageresultimg').each(function () {
             if (this.naturalWidth === 0 || this.naturalHeight === 0 || this.complete === false) {
                 $(this).parent().fadeOut().remove()
             }
         });
-        // }, 3000)
         updateSelectCount()
     }
 
@@ -190,11 +193,17 @@ $(function () {
             data: JSON.stringify(payload)
         }).done(function (result) {
             hideLoading("#graph_loading_overlay");
+            imageData = {}
             console.log("results:", result.searchresults.photo.length)
             resultstatus = " of " + result.searchresults.pages + " ( " + result.searchresults.total + "  total )"
             $(".searchstatus").text(resultstatus);
             $(".pagenumberinputbox").val(result.searchresults.page);
             result.searchresults.photo.forEach(function (each) {
+                imageData[each.id] = {
+                    "title": each.title,
+                    "id": each.id,
+                    "url": each.url_n
+                };
                 $vizsubbox = $("<div id='" + each.id + "' class='eachimagebox'>" +
                     "<img class='imageresultimg' src= '" + each.url_n + "'data-title= '" + each.title + "'data-id='" + each.id + "'  />" +
                     // "<div class='imghovermenubar'> <div class='imagehovermenu'>save</div></div>" + 
