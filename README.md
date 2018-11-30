@@ -1,4 +1,4 @@
-# coco-africa
+# COCO-Africa: A Curation Tool and Dataset of Common Objects in the Context of Africa
 > Project is still in development
 
 <img src="images/screen.jpg" width="100%">
