@@ -132,26 +132,26 @@ $(function () {
 
     // Hover event for images
     $('body').on('mouseenter', '.imageresultimg', function () {
-        // lastHoverTime = new Date();
-        // $(".hoverrig").show()
-        // // alert($(this).parent().find(".imagehovermenu").html())
-        // $(this).parent().find(".imagehovermenu").show();
-        // imgurl = $(this).attr("src")
-        // leftOffset = ($(this).offset().left + $(this).width() + $(".hoverrigimg").innerWidth()) > $(window).width() ? ($(this).offset().left - $(".hoverrigimg").innerWidth() - 10) : ($(this).offset().left + $(this).width() + 10)
-        // topOffset = ($(this).offset().top - $(document).scrollTop() + $(".hoverrigimg").innerWidth()) > $(window).height() ? ($(this).offset().top - $(".hoverrigimg").innerWidth() + $(this).height()) : $(this).offset().top
-        // // console.log($(document).scrollTop(), ($(this).offset().top + $(".hoverrigimg").innerWidth() ).toFixed(2) , $(window).height()   )
-        // $(".hoverrigimg").attr("src", imgurl)
-        // $(".hoverigcaption").text($(this).attr("data-title"));
-        // $("div.hoverrig").offset({
-        //     left: leftOffset,
-        //     top: topOffset
-        // });
+        lastHoverTime = new Date();
+        $(".hoverrig").show()
+        // alert($(this).parent().find(".imagehovermenu").html())
+        $(this).parent().find(".imagehovermenu").show();
+        imgurl = $(this).attr("src")
+        leftOffset = ($(this).offset().left + $(this).width() + $(".hoverrigimg").innerWidth()) > $(window).width() ? ($(this).offset().left - $(".hoverrigimg").innerWidth() - 10) : ($(this).offset().left + $(this).width() + 10)
+        topOffset = ($(this).offset().top - $(document).scrollTop() + $(".hoverrigimg").innerWidth()) > $(window).height() ? ($(this).offset().top - $(".hoverrigimg").innerWidth() + $(this).height()) : $(this).offset().top
+        // console.log($(document).scrollTop(), ($(this).offset().top + $(".hoverrigimg").innerWidth() ).toFixed(2) , $(window).height()   )
+        $(".hoverrigimg").attr("src", imgurl)
+        $(".hoverigcaption").text($(this).attr("data-title"));
+        $("div.hoverrig").offset({
+            left: leftOffset,
+            top: topOffset
+        });
 
         // console.log($(this).attr("data-title"))
     });
 
     $('body').on('mouseout', '.imageresultimg', function () {
-        // $("div.hoverrig").hide()
+        $("div.hoverrig").hide()
         $(this).parent().find(".imagehovermenu").hide();
     });
 

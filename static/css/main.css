@@ -415,6 +415,7 @@ a.documentationlink {
 
 .hoverrigimg {
   width: 350px;
+  z-index: 100;
 }
 
 .hoverigcaption {
