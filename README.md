@@ -8,7 +8,7 @@ The Coco Africa project is geared towards creating an easy to use data collectio
 
 Add your flickr and google client app credentials in the `utils/credentials_default.py` file and then rename it to `credentials.py`
 
-```
+```shell
 cd utils
 cp credentials_default.py credentials.py   #rename file
 ```
