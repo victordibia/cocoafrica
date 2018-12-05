@@ -1,5 +1,5 @@
 # COCO-Africa: A Curation Tool and Dataset of Common Objects in the Context of Africa
-> Project is still in development
+> Project is still in development **
 
 <img src="images/screen.jpg" width="100%">
 The Coco Africa project is geared towards creating an easy to use data collection and curation tool to enable the curation of interesting (mostly underrepresented) datasets.
