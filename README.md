@@ -12,8 +12,8 @@ This repo mainly contains code for the data collection interface(s) being used t
 
 ## The Datasets
 
-- COCO Africa Masks: A dataset of African masks to foster experiments in the intersection of African Art and AI.
-Early results training an unconditional GAN (DCGAN) on a 10k curated dataset of African masks are shown below.
+- COCO Africa Masks (To be released soon): A dataset of African masks to foster experiments in the intersection of African Art and AI.
+Early results training an unconditional GAN (DCGAN) on a curated dataset of African masks (10k) are shown below.
 
 <img src="images/r1.png" width="33.3%"><img src="images/s1.png" width="33.3%"><img src="images/s2.png" width="33.3%">
 
@@ -34,3 +34,20 @@ cp credentials_default.py credentials.py   #rename file
 ```
 python webserver.py
 ```
+
+
+
+## Citing this tutorial
+
+If you'd like to cite this work, use the below.
+
+Victor Dibia, COCO-AFRICA : A Curation Tool and Dataset of Common Objects in the Context of Africa (2018), GitHub repository, https://github.com/victordibia/coco-africa
+```bib
+@misc{CocoAfricaDibia2018,
+  author = {Victor, Dibia},
+  title = {COCO-AFRICA : A Curation Tool and Dataset of Common Objects in the Context of Africa},
+  year = {2018},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/victordibia/coco-africa}} 
+}
