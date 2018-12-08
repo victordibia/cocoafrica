@@ -48,6 +48,6 @@ Victor Dibia, COCO-AFRICA : A Curation Tool and Dataset of Common Objects in the
   title = {COCO-AFRICA : A Curation Tool and Dataset of Common Objects in the Context of Africa},
   year = {2018},
   publisher = {GitHub},
-  journal = {GitHub repository},
+  journal = {2018 Conference on Neural Information Processing, 2nd Black in AI Workshop},
   howpublished = {\url{https://github.com/victordibia/coco-africa}} 
 }
