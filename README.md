@@ -18,7 +18,7 @@ Early results training an unconditional GAN (DCGAN) on a curated dataset of Afri
 <img src="images/r1.png" width="33.3%"><img src="images/s1.png" width="33.3%"><img src="images/s2.png" width="33.3%">
 
 ## Trained Models
-As the project progresses, trained models will be made available for tasks trained on aspects of the COCO-Africa dataset.
+As the project progresses, trained models will be made available  for tasks trained on aspects of the COCO-Africa dataset.
 
 ## Setup
 
