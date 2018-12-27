@@ -66,3 +66,24 @@ function showLoading(element) {
 function hideLoading(element) {
     $(element).fadeOut("slow")
 }
+
+
+// show Notification
+function showNotification(title, subtitle, caption) {
+
+    $(".toasttemplate").find(".bx--toast-notification__title").text(title)
+    $(".toasttemplate").find(".bx--toast-notification__subtitle").text(subtitle)
+    $(".toasttemplate").find(".bx--toast-notification__caption").text(caption)
+
+    toastInstance = $(".toasttemplate").clone()
+    toastInstance.removeClass("toasttemplate")
+
+    toastInstance.hide().appendTo(".toastDivBox")
+    toastInstance.fadeIn("slow")
+    toastInstance.find(".bx--toast-notification__close-button").click(function () {
+        $(this).parent().fadeOut("slow", function () {
+            $(this).remove()
+        })
+
+    });
+}

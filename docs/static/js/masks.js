@@ -2,7 +2,7 @@
 
 
      hideLoading("#graph_loading_overlay")
-
+     var similarityBlock1, similarityBlock5
      //  $(".masktabcontent").html($("#generated").html())
      $("#generated").show()
 
@@ -22,17 +22,76 @@
          $(".ganimagebox").empty()
          for (i = 0; i < 100; i++) {
 
-             $imagebox = $("<div id='" + i + "' class='eachimagebox'>" +
-                 "<img class='imageresultimg' src= 'static/assets/images/generated/" + i + ".jpg" + "' data-title= '" + i + "'data-id='" + i + "'  />" +
-                 // "<div class='imghovermenubar'> <div class='imagehovermenu'>save</div></div>" + 
-                 "</div>");
+             $imagebox = $("<div id='" + i + "' class='iblock'>" +
+                 "<img class='imageresultimg eachimagebox' src= 'static/assets/images/generated/" + i + ".jpg" + "' data-title= '" + i + "'data-id='" + i + "'/>" + "</div>");
              $(".ganimagebox").append($imagebox)
              //  console.log($imagebox.html())
          }
      }
 
+     function loadImageData(layerName) {
+         $.ajax({
+             url: "/static/assets/images/dataset/" + layerName + ".json",
+             type: "GET",
+             contentType: "application/json",
+         }).done(function (result) {
+             if (layerName == "block1_pool") {
+                 similarityBlock1 = result
+             } else {
+                 similarityBlock5 = result
+             }
+             console.log("Block data loaded")
+             // imageself.parent().fadeOut()
+             // $(".hoverrig").hide()
+         }).fail(function (xhr, status, error) {
+             showNotification("Server Error. ", status, error + ". You might have to try again later.")
+         });
+
+     }
+
+     loadImageData("block1_pool")
+     loadImageData("block5_pool")
+     //  console.log("Block data ", similarityBlock1.length, similarityBlock5.length)
+
      loadImages()
 
+
+     // Click event for images
+     $('body').on('click', '.imageresultimg', function () {
+         //  console.log($(this).attr("data-id"), "clicked")
+         $(".imageresultimg").removeClass("imageactive")
+         $(this).addClass("imageactive");
+         imageId = $(this).attr("data-id")
+         getSimilarity(imageId)
+     });
+
+     function getSimilarity(imageId) {
+         similarImages = similarityBlock5[imageId]
+         $(".similarimagebox").slideUp("slow", function () {
+             $(".similarcontent").empty()
+             similarImages.forEach(each => {
+                 $imagebox = $("<div id='" + i + "' class='similareachimagebox iblock'>" +
+                     "<img class='similarimg eachimagebox' src= 'static/assets/images/dataset/images/" + each.id + ".jpg" + "' data-title= '" + each.id + "'data-id='" + each.id + "'  />" +
+                     // "<div class='imghovermenubar'> <div class='imagehovermenu'>save</div></div>" + 
+                     "</div>");
+                 $(".similarcontent").append($imagebox)
+             });
+
+             $maincontent = $("<img class='mainimg' src= 'static/assets/images/generated/" + imageId + ".jpg" + "' data-title= '" + imageId + "'data-id='" + imageId + "'  />")
+             $(".mainimagecontent").html($maincontent)
+             //  console.log(similarImages)
+             $(".similarimagebox").css('opacity', 0)
+                 .slideDown('slow')
+                 .animate({
+                     opacity: 1
+                 }, {
+                     queue: false,
+                     duration: 'slow'
+                 });
+         })
+
+
+     }
 
      //  // Hover event for images
      //  $('body').on('mouseenter', '.imageresultimg', function () {

@@ -309,6 +309,10 @@ a.documentationlink {
   padding: 15px 10px 10px 0px;
 }
 
+.imageactive {
+  border-top: 4px solid #0063FF;
+}
+
 .horrule {
   /* background: #3D71B2; */
   height: 2px;
@@ -316,13 +320,13 @@ a.documentationlink {
 
 .eachimagebox {
   display: inline-block;
-  border-bottom: 2px solid #fff;
-  margin: 0px 0px 2px 0px;
+  border-bottom: 3px solid #fff;
+  margin: 0px 0px 1px 0px;
 }
 
 .eachimagebox:hover {
   cursor: pointer;
-  border-bottom: 2px solid #0063FF;
+  border-bottom: 3px solid #0063FF;
 }
 
 .hoverrigimg {
@@ -333,6 +337,37 @@ a.documentationlink {
 
 .gandescription {
   margin: 0px 0px 15px 0px;
+}
+
+
+.similarimagebox {
+  padding: 10px;
+  /* border: 2px dashed #BEBEBE; */
+  margin-bottom: 10px;
+  display: none;
+}
+
+.similarcontent {
+  overflow: hidden;
+  /* min-height: 50px; */
+  /* border: 2px dashed #f0f */
+}
+
+.mainimagecontent {
+  float: left;
+  width: 130px;
+  /* min-height: 128px; */
+  margin-right: 10px;
+  /* border: 2px dashed #00f */
+}
+
+.mainimg {
+  width: 132px;
+  border-top: 4px solid #0063FF;
+}
+
+.iblock {
+  display: inline-block;
 }
 
 .hoverigcaption {
