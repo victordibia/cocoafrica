@@ -316,6 +316,12 @@ a.documentationlink {
   border-top: 4px solid #0063FF;
 }
 
+.copyrightnote {
+  padding: 10px;
+  background: rgb(190, 213, 250);
+  margin: 0px 0px 0px 0px;
+}
+
 .horrule {
   /* background: #3D71B2; */
   height: 2px;
