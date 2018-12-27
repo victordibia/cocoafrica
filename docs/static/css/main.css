@@ -376,3 +376,19 @@ a.documentationlink {
   border-bottom: 2px solid #3D70B2;
   background: #fff;
 }
+
+.hangleft {
+  overflow: hidden;
+  min-height: 55px;
+  /* border: 2px dashed #f0f; */
+  padding-top: 10px;
+}
+
+.hangright {
+  float: right;
+  width: 350px;
+  min-height: 30px;
+  margin-left: 10px;
+  /* margin-top: -5px; */
+  /* border: 2px dashed #00f */
+}
