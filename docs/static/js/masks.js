@@ -31,7 +31,7 @@
 
      function loadImageData(layerName) {
          $.ajax({
-             url: "/static/assets/images/dataset/" + layerName + ".json",
+             url: "static/assets/images/dataset/" + layerName + ".json",
              type: "GET",
              contentType: "application/json",
          }).done(function (result) {
