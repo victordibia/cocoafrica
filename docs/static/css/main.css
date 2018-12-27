@@ -370,6 +370,12 @@ a.documentationlink {
   display: inline-block;
 }
 
+.similaritydescription {
+  padding: 0px 0px 14px 0px;
+  font-size: 14px;
+  line-height: 140%;
+}
+
 .hoverigcaption {
   padding: 10px;
   width: 350px;

@@ -28,38 +28,42 @@
         <div>
           <div class="hangright">
             <ul data-dropdown data-value class="bx--dropdown" tabindex="0">
-              <li class="bx--dropdown-text">
-                Select layer </li>
+              <li class="bx--dropdown-text layerdropdowntext">
+                block1_pool </li>
               <svg class="bx--dropdown__arrow" width="10" height="5" viewBox="0 0 10 5" fill-rule="evenodd">
                 <path d="M10 0L5 5 0 0z"></path>
               </svg>
               <li>
                 <ul class="bx--dropdown-list">
-                  <li data-option data-value="all" class="bx--dropdown-item">
-                    <a class="bx--dropdown-link" href="javascript:void(0)" tabindex="-1">Option 1</a>
+                  <li data-option data-value="block1_pool" class="bx--dropdown-item">
+                    <a class="bx--dropdown-link layerdropdown" href="javascript:void(0)" tabindex="-1">block1_pool</a>
                   </li>
-                  <li data-option data-value="cloudFoundry" class="bx--dropdown-item">
-                    <a class="bx--dropdown-link" href="javascript:void(0)" tabindex="-1">Option 2</a>
+                  <li data-option data-value="block5_pool" class="bx--dropdown-item">
+                    <a class="bx--dropdown-link layerdropdown" href="javascript:void(0)" tabindex="-1">block5_pool</a>
                   </li>
-                  <li data-option data-value="staging" class="bx--dropdown-item">
-                    <a class="bx--dropdown-link" href="javascript:void(0)" tabindex="-1">Option 3</a>
-                  </li>
-                  <li data-option data-value="dea" class="bx--dropdown-item">
-                    <a class="bx--dropdown-link" href="javascript:void(0)" tabindex="-1">Option 4</a>
-                  </li>
-                  <li data-option data-value="router" class="bx--dropdown-item">
-                    <a class="bx--dropdown-link" href="javascript:void(0)" tabindex="-1">Option 5</a>
-                  </li>
+
                 </ul>
               </li>
             </ul>
           </div>
-          <div class="hangleft"> > <strong> Did the GAN generate novel samples?</strong> Most similar images based on
-            features from a
-            VGG network. </div>
+          <div class="hangleft"> > <strong> Did the GAN generate novel samples?</strong> </div>
         </div>
-        <div class="mainimagecontent"> </div>
-        <div class="similarcontent "> </div>
+
+        <div class="similaritydescription"> The images on the right show the <strong>(top 24) </strong> most content
+          similar images in
+          the dataset to the generated
+          image
+          (on the left).
+          Similarity is measured by comparing the cosine distance of features extracted (using a <strong>VGG network
+          </strong>) from the
+          generated image and images in the dataset.
+          Features are extracted from an early layer in the VGG network (block1_pool) and a later layer (block5_pool).
+        </div>
+        <div>
+          <div class="mainimagecontent"> </div>
+          <div class="similarcontent "> </div>
+
+        </div>
       </div>
 
     </div>
@@ -68,7 +72,7 @@
 
   </div>
   <div id="dataset" class="tabcontent">
-    Dataset info here
+    More information on the full dataset will be provided soon.
   </div>
 </div>
 <br />

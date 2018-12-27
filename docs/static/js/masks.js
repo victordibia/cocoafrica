@@ -2,6 +2,10 @@
 
 
      hideLoading("#graph_loading_overlay")
+
+     layerModalSelector = document.querySelector("[data-dropdown]")
+     layerModal = CarbonComponents.Dropdown.create(layerModalSelector)
+
      var similarityBlock1, similarityBlock5
      //  $(".masktabcontent").html($("#generated").html())
      $("#generated").show()
@@ -65,18 +69,45 @@
          getSimilarity(imageId)
      });
 
-     function getSimilarity(imageId) {
-         similarImages = similarityBlock5[imageId]
-         $(".similarimagebox").slideUp("slow", function () {
-             $(".similarcontent").empty()
-             similarImages.forEach(each => {
-                 $imagebox = $("<div id='" + i + "' class='similareachimagebox iblock'>" +
-                     "<img class='similarimg eachimagebox' src= 'static/assets/images/dataset/images/" + each.id + ".jpg" + "' data-title= '" + each.id + "'data-id='" + each.id + "'  />" +
-                     // "<div class='imghovermenubar'> <div class='imagehovermenu'>save</div></div>" + 
-                     "</div>");
-                 $(".similarcontent").append($imagebox)
-             });
+     // Click event for layerdropdown
+     $('body').on('click', '.layerdropdown', function () {
+         console.log("changed text", $(this).text())
+         imageId = $(".imageresultimg.imageactive").attr("data-id")
+         appendSimilarImages(imageId)
+     });
 
+     function updateSimilarImages(imageID) {
+         appendSimilarImages(imageId)
+
+     }
+
+     function appendSimilarImages(imageId) {
+         selectedLayer = $(".layerdropdowntext").text()
+         if (selectedLayer == "block1_pool") {
+             similarImages = similarityBlock1[imageId]
+         } else {
+             similarImages = similarityBlock5[imageId]
+         }
+         //  similarImages = getSimilarImages()
+         $(".similarcontent").empty()
+         similarImages.forEach(each => {
+             $imagebox = $("<div id='" + i + "' class='similareachimagebox iblock'>" +
+                 "<img class='similarimg eachimagebox' src= 'static/assets/images/dataset/images/" + each.id + ".jpg" + "' data-title= '" + each.id + "'data-id='" + each.id + "'  />" +
+                 // "<div class='imghovermenubar'> <div class='imagehovermenu'>save</div></div>" + 
+                 "</div>");
+             $(".similarcontent").append($imagebox)
+         });
+         //  $(".similarcontent").fadeOut("slow", function () {
+
+         //      $(this).fadeIn("slow")
+         //  })
+
+     }
+
+     function getSimilarity(imageId) {
+
+         $(".similarimagebox").slideUp("slow", function () {
+             appendSimilarImages(imageId)
              $maincontent = $("<img class='mainimg' src= 'static/assets/images/generated/" + imageId + ".jpg" + "' data-title= '" + imageId + "'data-id='" + imageId + "'  />")
              $(".mainimagecontent").html($maincontent)
              //  console.log(similarImages)
@@ -89,8 +120,6 @@
                      duration: 'slow'
                  });
          })
-
-
      }
 
      //  // Hover event for images
