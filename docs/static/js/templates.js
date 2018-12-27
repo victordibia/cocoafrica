@@ -5,7 +5,7 @@ Author: Victor Dibia <victor.dibia@gmail.com>
 
 $(function () {
     $("#sidebar").load("sidebar.html", function () {
-        var selectedtab = "documentation"
+        var selectedtab = "masks"
         selectedtab = getHash() || selectedtab
         // alert (  selectedtab + $("a.sidelink").html())
         $(".sidebarlinks").removeClass("sidebarselected")
@@ -30,7 +30,7 @@ $(function () {
 
     $.getScript("static/js/masks.js", function (data, textStatus, jqxhr) {
         $(".pagesection").hide()
-        selectedtab = "documentation"
+        selectedtab = "masks"
 
         selectedtab = getHash() || selectedtab
         $(".pagesection#" + selectedtab).show()
