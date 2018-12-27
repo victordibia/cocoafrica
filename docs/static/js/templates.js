@@ -28,7 +28,7 @@ $(function () {
     // Sidebar clicks to show/hide page sections
 
 
-    $.getScript("static/js/seqviz.js", function (data, textStatus, jqxhr) {
+    $.getScript("static/js/masks.js", function (data, textStatus, jqxhr) {
         $(".pagesection").hide()
         selectedtab = "documentation"
 
@@ -57,3 +57,12 @@ $(function () {
         return hash
     }
 })
+
+// Show Loading Spinner
+function showLoading(element) {
+    $(element).fadeIn("slow")
+}
+// Hide Loading Spinner
+function hideLoading(element) {
+    $(element).fadeOut("slow")
+}
