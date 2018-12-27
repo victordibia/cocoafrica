@@ -3,6 +3,8 @@
 
      hideLoading("#graph_loading_overlay")
 
+
+
      //  layerModalSelector = document.querySelector("[data-dropdown]")
      //  layerModal = CarbonComponents.Dropdown.create(layerModalSelector)
 

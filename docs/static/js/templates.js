@@ -49,6 +49,10 @@ $(function () {
         })
     });
 
+    $.getScript("static/js/dataset.js", function (data, textStatus, jqxhr) {
+        // loadSampleDataset()
+    });
+
     function getHash() {
         var hash = null;
         if (window.location.hash) {
