@@ -280,7 +280,8 @@ a.documentationlink {
   margin: 0px 0px 10px 0px;
 }
 
-.masktab {
+.masktab,
+.layertab {
   color: #152934;
   font-size: 14px;
   display: inline-block;
@@ -290,12 +291,14 @@ a.documentationlink {
   border-bottom: 2px solid #BEBEBE;
 }
 
-.maskactive {
+.maskactive,
+.layertabactive {
   font-weight: bold;
   border-bottom: 2px solid #0063FF;
 }
 
-.masktab:hover {
+.masktab:hover,
+.layertab:hover {
   background: #f0f3f6;
   border-bottom: 2px solid #6F6F6F;
   cursor: pointer;
@@ -349,14 +352,14 @@ a.documentationlink {
 
 .similarcontent {
   overflow: hidden;
-  /* min-height: 50px; */
+  min-height: 128px;
   /* border: 2px dashed #f0f */
 }
 
 .mainimagecontent {
   float: left;
   width: 130px;
-  /* min-height: 128px; */
+  min-height: 128px;
   margin-right: 10px;
   /* border: 2px dashed #00f */
 }
@@ -390,9 +393,14 @@ a.documentationlink {
   padding-top: 10px;
 }
 
+.layerbutton {
+  float: right;
+  margin-right: 3px;
+}
+
 .hangright {
   float: right;
-  width: 350px;
+  width: 290px;
   min-height: 30px;
   margin-left: 10px;
   /* margin-top: -5px; */

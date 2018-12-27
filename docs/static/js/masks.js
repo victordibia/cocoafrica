@@ -3,8 +3,8 @@
 
      hideLoading("#graph_loading_overlay")
 
-     layerModalSelector = document.querySelector("[data-dropdown]")
-     layerModal = CarbonComponents.Dropdown.create(layerModalSelector)
+     //  layerModalSelector = document.querySelector("[data-dropdown]")
+     //  layerModal = CarbonComponents.Dropdown.create(layerModalSelector)
 
      var similarityBlock1, similarityBlock5
      //  $(".masktabcontent").html($("#generated").html())
@@ -70,8 +70,10 @@
      });
 
      // Click event for layerdropdown
-     $('body').on('click', '.layerdropdown', function () {
-         console.log("changed text", $(this).text())
+     $('body').on('click', '.layertab', function () {
+         //  console.log("changed text", $(this).text())
+         $("div.layertab").removeClass("layertabactive")
+         $(this).addClass("layertabactive");
          imageId = $(".imageresultimg.imageactive").attr("data-id")
          appendSimilarImages(imageId)
      });
@@ -80,9 +82,11 @@
          appendSimilarImages(imageId)
 
      }
+     //  $(".layerdropdown#layerdropdown").click()
 
      function appendSimilarImages(imageId) {
-         selectedLayer = $(".layerdropdowntext").text()
+         selectedLayer = $(".layertab.layertabactive").attr("id")
+         //  console.log("selected laer", selectedLayer)
          if (selectedLayer == "block1_pool") {
              similarImages = similarityBlock1[imageId]
          } else {
