@@ -341,7 +341,7 @@ a.documentationlink {
 
 
 .similarimagebox {
-  padding: 10px;
+  padding: 10px 10px 10px 0px;
   /* border: 2px dashed #BEBEBE; */
   margin-bottom: 10px;
   display: none;
