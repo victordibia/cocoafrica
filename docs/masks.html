@@ -1,0 +1,57 @@
+<div class="graphdescription"> Examples Masks</div>
+<div class="abstractcontent lighttext">
+
+  Rapidly creating effective visualizations using expressive grammars is challenging for users who have limited time
+  and limited
+  skills in statistics and data visualization. Even high-level, dedicated visualization tools often require users to
+  manually
+  select among data attributes, decide which transformations to apply, and specify mappings between visual encoding
+  variables
+  and raw or transformed attributes.
+
+  <br /> <br /> In this paper, we introduce <u><strong>Data2Vis</strong></u>, a neural translation model, for
+  automatically
+  generating visualizations from given datasets. We <strong><u>formulate visualization generation as a sequence to
+      sequence translation
+      problem </strong></u> where data specification is mapped to a visualization specification in a declarative
+  language (Vega-Lite). To this
+  end, we train a multilayered Long Short-Term Memory (LSTM) model with attention on a corpus of visualization
+  specifications.
+  Qualitative results show that our model learns the vocabulary and syntax for a valid visualization specification,
+  appropriate
+  transformations (count, bins, mean) and how to use common data selection patterns that occur within data
+  visualizations. Our model generates visualizations that are comparable to manually-created visualizations in a
+  fraction of the time, with
+  potential to learn more complex visualization strategies at scale.
+
+  <br /> <br />
+  This is work in progress, feedback is most welcome! Check out the <a class="documentationdemolink documentationlink"
+    href="#">demo</a>, view some generated <a class="documentationexamplelink documentationlink" href="#examples">
+    examples</a>,
+  or download an <a class="documentationlink" target="blank" href="https://arxiv.org/abs/1804.03126">early draft</a> of
+  the paper below.
+</div>
+<br />
+
+<div>
+  <a href="http://medium.com/" target="blank">
+    <button class="bx--btn bx--btn--primary" type="button">
+      Blog Post
+      <svg class="bx--btn__icon" width='24' height='20' viewBox='0 0 24 20' fill-rule='evenodd'>
+        <path d='M15.7 9.7L22 3.4V8h2V0h-8v2h4.6l-6.3 6.3z'></path>
+        <path d='M22 18H2V4h10V0H0v20h24v-8h-2z'></path>
+      </svg>
+    </button>
+  </a>
+
+  <a href="https://arxiv.org/abs/1804.03126" target="blank">
+    <button class="bx--btn bx--btn--primary" type="button">
+      Early Paper Draft
+      <svg class="bx--btn__icon" width='24' height='24' viewBox='0 0 24 24' fill-rule='evenodd'>
+        <path d='M19 9.4l-1.2-1.1L13 13V0h-2v13L6.2 8.3 5 9.4l7 6.6z'></path>
+        <path d='M22 14v6H2v-6H0v10h24V14z'>
+      </svg>
+    </button>
+  </a>
+</div>
+<br />

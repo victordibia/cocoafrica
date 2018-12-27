@@ -2,7 +2,8 @@
 > Project is still in development **
 
 <img src="images/screen.jpg" width="100%">
-The Coco Africa project is geared towards creating an easy to use data collection and curation tool to enable the curation of interesting (mostly underrepresented) datasets.
+The Coco Africa project is geared towards creating an easy to use data collection and curation tool to enable the curation of interesting datasets (on under-represented objects and contexts).
+
 
 ## The Data Collection Tool
 
