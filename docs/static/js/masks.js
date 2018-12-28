@@ -29,10 +29,15 @@
          for (i = 0; i < 100; i++) {
 
              $imagebox = $("<div id='" + i + "' class='iblock'>" +
-                 "<img class='imageresultimg eachimagebox' src= 'static/assets/images/generated/" + i + ".jpg" + "' data-title= '" + i + "'data-id='" + i + "'/>" + "</div>");
+                 "<img class='imageresultimg eachimagebox' src= 'static/assets/images/generated/" + i + ".jpg" + "' id= '" + i + "' data-title= '" + i + "'data-id='" + i + "'/>" + "</div>");
              $(".ganimagebox").append($imagebox)
              //  console.log($imagebox.html())
          }
+
+         setTimeout(function () {
+             $(".imageresultimg").first().click()
+             //  console.log("Clickkk", $(".imageresultimg").first().attr("id"))
+         }, 2000)
      }
 
      function loadImageData(layerName) {
