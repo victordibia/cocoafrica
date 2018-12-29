@@ -333,7 +333,8 @@ a.documentationlink {
 .eachimagebox {
   display: inline-block;
   border-bottom: 3px solid #fff;
-  margin: 0px 0px 1px 0px;
+  margin: 0px 3px 0px 0px;
+  border-radius: 2px;
 }
 
 .eachimagebox:hover {
@@ -370,12 +371,14 @@ a.documentationlink {
   width: 130px;
   min-height: 128px;
   margin-right: 10px;
+
   /* border: 2px dashed #00f */
 }
 
 .mainimg {
   width: 132px;
   border-top: 4px solid #0063FF;
+  border-radius: 2px;
 }
 
 .iblock {

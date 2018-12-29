@@ -37,7 +37,7 @@
          setTimeout(function () {
              $(".imageresultimg").first().click()
              //  console.log("Clickkk", $(".imageresultimg").first().attr("id"))
-         }, 2000)
+         }, 1200)
      }
 
      function loadImageData(layerName) {
