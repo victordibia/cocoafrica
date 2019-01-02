@@ -29,7 +29,7 @@
          for (i = 0; i < 100; i++) {
 
              $imagebox = $("<div id='" + i + "' class='iblock'>" +
-                 "<img class='imageresultimg eachimagebox cursorable' src= 'static/assets/images/generated/" + i + ".jpg" + "' id= '" + i + "' data-title= '" + i + "'data-id='" + i + "'/>" + "</div>");
+                 "<img class='imageresultimg eachimagebox cursorable expandable' src= 'static/assets/images/generated/" + i + ".jpg" + "' id= '" + i + "' data-title= '" + i + "'data-id='" + i + "'/>" + "</div>");
              $(".ganimagebox").append($imagebox)
              //  console.log($imagebox.html())
          }

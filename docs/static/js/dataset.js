@@ -6,7 +6,7 @@ $(function () {
     function loadSampleDataset() {
         datasetList.forEach(each => {
             $imagebox = $("<div id='" + each + "' class='sampleimagebox iblock'>" +
-                "<img class='sampleimg eachimagebox' src= 'static/assets/images/dataset/images/" + each + "' data-title= '" + each + "'data-id='" + each + "'  />" +
+                "<img class='sampleimg eachimagebox expandable' src= 'static/assets/images/dataset/images/" + each + "' data-title= '" + each + "'data-id='" + each + "'  />" +
                 // "<div class='imghovermenubar'> <div class='imagehovermenu'>save</div></div>" + 
                 "</div>");
             $(".datasetsamplebox").append($imagebox)
