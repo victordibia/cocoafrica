@@ -335,11 +335,18 @@ a.documentationlink {
   border-bottom: 3px solid #fff;
   margin: 0px 3px 0px 0px;
   border-radius: 2px;
+  z-index: 0;
+  transition: transform .2s;
 }
 
 .eachimagebox:hover {
-  cursor: pointer;
   border-bottom: 3px solid #0063FF;
+  transform: scale(1.5);
+  z-index: 1000;
+}
+
+.cursorable:hover {
+  cursor: pointer;
 }
 
 .hoverrigimg {
