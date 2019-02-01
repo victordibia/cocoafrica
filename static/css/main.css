@@ -329,6 +329,10 @@ a.documentationlink {
 
 }
 
+.pb10 {
+  margin: 0px 0px 10px 0px
+}
+
 
 .eachimagebox {
   display: inline-block;
@@ -434,4 +438,8 @@ a.documentationlink {
   margin-right: 20px;
   /* margin-top: -5px; */
   /* border: 2px dashed #00f */
+}
+
+.gen64box {
+  margin:
 }
