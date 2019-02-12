@@ -35,7 +35,7 @@ $(function () {
         selectedtab = getHash() || selectedtab
         $(".pagesection#" + selectedtab).show()
 
-        $(".sidelink").click(function () {
+        $(".sidelink").click(function (event) {
             event.preventDefault();
             $(".sidebarlinks").removeClass("sidebarselected")
             $("a#" + $(this).attr("id")).parent().addClass("sidebarselected")
