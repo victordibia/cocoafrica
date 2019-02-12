@@ -2,6 +2,7 @@ utils/credentials.py
 *.DS_Store
 temp
 test.py
+demo
 
 
 
