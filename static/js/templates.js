@@ -36,6 +36,7 @@ $(function () {
         $(".pagesection#" + selectedtab).show()
 
         $(".sidelink").click(function () {
+            event.preventDefault();
             $(".sidebarlinks").removeClass("sidebarselected")
             $("a#" + $(this).attr("id")).parent().addClass("sidebarselected")
             clickedSection = $(".pagesection#" + $(this).attr("id"))
