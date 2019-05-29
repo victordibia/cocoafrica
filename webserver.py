@@ -72,9 +72,8 @@ def search():
 
 @app.route("/saveimages", methods=['POST'])
 def saveimages():
-    curated_data = request.json
-    print(curated_data)  # print(response_payload)
-    ds.save_image_data(curated_data)
+    curated_data = request.json 
+    ds.save_image_data_to_folder(curated_data)
     # save_status = ds.save_image_data(
     #     flickr.get_image_info(input_data["id"]), input_data)
     # flickr.get_images_info(input_data["imageids"])
