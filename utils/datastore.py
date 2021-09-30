@@ -66,9 +66,10 @@ def save_image_data_to_folder(curated_data):
     # download the image
     mkdir(os.path.join("datasets", base_save_path, "images"))
     for image_info in curated_data["imageids"]:
-        save_path =  os.path.join("datasets", base_save_path, "images", image_info["id"] + ".jpg")
-        download_image(image_info["url"], save_path)
-        print(image_info["url"])
+        if "url" in image_info:
+            save_path =  os.path.join("datasets", base_save_path, "images", image_info["id"] + ".jpg")
+            download_image(image_info["url"], save_path)
+            print(image_info["url"])
     
     # mkdir(os.path.join("datasets",full_save_path))
 
